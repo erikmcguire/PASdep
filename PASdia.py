@@ -102,7 +102,10 @@ def pas_edges(pD, aD, pLst):
                        if cid != pid:
                            if any(pid in edge[-12:-8] for edge in edges if len(edge) > 1):
                                if int(pid) - int(cid) > 1:
-                                   soffset += 5
+                                   if soffset >= 0:
+                                       soffset += 5
+                                   else:
+                                       soffset = 5
                                else:
                                    soffset -= 5
                            if any(cid in edge[-9:-5] for edge in edges if len(edge) > 1):
