@@ -88,7 +88,9 @@ def sentence_to_pas(sent):
 
 def pas_edges(pD, aD, pLst):
   cD = {'ga': ('red', 'NOM'), 'o': ('cyan, dashed', 'ACC'), 'ni': ('teal', 'DAT')}
-  edges = []
+  edges = ["\n"]
+  soffset = 0
+  eoffset = 0
   for (i, t) in six.iteritems(pD):
         for (k, (c, l)) in six.iteritems(cD):
            for j in t.split(' '):
@@ -98,16 +100,31 @@ def pas_edges(pD, aD, pLst):
                        cid = convID(pLst, sid)
                        pid = convID(pLst, i)
                        if cid != pid:
-                           edges += '\n\depedge[style={%s}, edge below, label style={rounded corners=0, draw=black, top color=cyan, bottom color=cyan, text=black, below}]{%s}{%s}{%s}' % (c, pid, cid, l)
+                           if any(pid in edge[-12:-8] for edge in edges if len(edge) > 1):
+                               if int(pid) - int(cid) > 1:
+                                   soffset += 5
+                               else:
+                                   soffset -= 5
+                           if any(cid in edge[-9:-5] for edge in edges if len(edge) > 1):
+                               eoffset -= 5
+                           edges.append('\n\depedge[style={%s}, edge start x offset=%spt, edge end x offset=%spt, edge below, label style={rounded corners=0, draw=black, top color=cyan, bottom color=cyan, text=black, below}]{%s}{%s}{%s}' % (c, str(soffset), str(eoffset), pid, cid, l))
   ej = ''.join(edges)
   if ej != None:
     return ej
 
-def wrap_depedge(h, m):
-    return '\depedge[edge style={black}]{%d}{%d}{}' % (int(h)+1, int(m)+1)
+def wrap_depedge(h, m, offset):
+    return '\depedge[edge style={black}, edge end x offset=%s]{%d}{%d}{}' % (offset, int(h)+1, int(m)+1)
 
 def wrap_depedges(sent):
-    return '\n'.join([wrap_depedge(seg.id, seg.head) for seg in sent if not seg.is_root()])
+    depedges = []
+    offset = 0
+    for seg in sent:
+        if len(depedges) > 0:
+            if any(str(int(seg.head)+1) in edge[-5:] for edge in depedges):
+                offset -= 5
+        if not seg.is_root():
+            depedges.append(wrap_depedge(seg.id, seg.head, str(offset)))
+    return '\n'.join(depedges)
 
 def read_deptree(f):
   sentences = []
