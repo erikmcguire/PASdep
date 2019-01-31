@@ -4,7 +4,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;I added PAS-related functions by making various modifications to Tetsuo Kiso's <a href="https://github.com/tetsuok/cabocha-to-tikz-deptree">original script</a>.</p>
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;This is a somewhat slapdash extension, created in 2016 as a means to generate sentence diagrams which can be used as a learning resource to illustrate the agglutinative, post-positional structure of Japanese sentences.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;This is a somewhat slapdash extension, created in 2016 as a means to generate sentence diagrams which can be used as a learning resource to illustrate the agglutinative, post-positional structure of Japanese sentences and the semantic and syntactic relations between the basic elements of sentences.
 
 <h3>Description</h3>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;The script converts the parse results into <a href="http://sourceforge.net/projects/tikz-dependency/" rel="nofollow">TikZ-dependency</a> code, with parameters that implement the LaTeX <a href="http://www.ctan.org/pkg/standalone" rel="nofollow">standalone</a> package. The resulting .tex file can be used to generate transparent PNG diagrams with <a href="https://www.imagemagick.org/script/index.php">ImageMagick</a>, <a href="https://www.ghostscript.com/">GhostScript</a>, and XeLateX.</p>
