@@ -9,7 +9,7 @@
 <h3>Description</h3>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;The script converts the parse results into <a href="http://sourceforge.net/projects/tikz-dependency/" rel="nofollow">TikZ-dependency</a> code, with parameters that implement the LaTeX <a href="http://www.ctan.org/pkg/standalone" rel="nofollow">standalone</a> package. The resulting .tex file can be used to generate transparent PNG diagrams with <a href="https://www.imagemagick.org/script/index.php">ImageMagick</a>, <a href="https://www.ghostscript.com/">GhostScript</a>, and XeLateX.</p>
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;The arcs over the sentences point from dependent <a href="http://universaldependencies.org/docsv1/ja/overview/introduction.html#bunsetsu-unit-base-phrase"><i>bunsetsu</i></a> units to their heads. The arcs under the sentences indicate predicates and their arguments, with color-coded arrows associated with the nominative (NOM), accusative (ACC), and dative (DAT) cases. This scheme is modeled after the paper which inspired my modifications: <a href="http://aclweb.org/anthology/P15-1093">"Joint Case Argument Identification for
+<p>&nbsp;&nbsp;&nbsp;&nbsp;The arcs over the sentences point from dependent <a href="http://universaldependencies.org/docsv1/ja/overview/introduction.html#bunsetsu-unit-base-phrase"><i>bunsetsu</i></a> units to their heads. The arcs under the sentences indicate predicates and their arguments, with color-coded arrows associated with the nominative (NOM, red), accusative (ACC, dashed blue), and dative (DAT, green) cases. This scheme is modeled after the paper which inspired my modifications: <a href="http://aclweb.org/anthology/P15-1093">"Joint Case Argument Identification for
 Japanese Predicate Argument Structure Analysis"</a> [PDF]</p>
 
 <p>
