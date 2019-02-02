@@ -1,0 +1,19 @@
+\documentclass[convert=true]{standalone}
+\usepackage{tikz-dependency}
+\usepackage{zxjatype}
+\setjamainfont[Scale=1]{Noto Sans Japanese Regular}
+\begin{document}
+\begin{dependency}[theme=simple, text only label, edge vertical padding=1]
+\begin{deptext}[column sep=1em, column sep=0.1cm, nodes={draw=black, inner sep=1ex, text=black}]
+風邪を \& 引いたので \& 私は \& 学校を \& 休んだ。 \\
+\end{deptext}
+\depedge[edge style={black}, edge end x offset=0]{1}{2}{}
+\depedge[edge style={black}, edge end x offset=0]{2}{5}{}
+\depedge[edge style={black}, edge end x offset=-5]{3}{5}{}
+\depedge[edge style={black}, edge end x offset=-10]{4}{5}{}
+
+\depedge[style={cyan, dashed}, edge start x offset=0pt, edge end x offset=0pt, edge below, label style={rounded corners=0, draw=black, top color=cyan, bottom color=cyan, text=black, below}]{2}{1}{ACC}
+\depedge[style={red}, edge start x offset=0pt, edge end x offset=0pt, edge below, label style={rounded corners=0, draw=black, top color=cyan, bottom color=cyan, text=black, below}]{5}{3}{NOM}
+\depedge[style={cyan, dashed}, edge start x offset=-5pt, edge end x offset=0pt, edge below, label style={rounded corners=0, draw=black, top color=cyan, bottom color=cyan, text=black, below}]{5}{4}{ACC}
+\end{dependency}
+\end{document}
